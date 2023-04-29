@@ -1,10 +1,37 @@
 {% block content %}
-<h1>Register</h1>
-<hr>
-
-<form action="{% url 'register' %}", method="post">
-    {{ form }}
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/css/style_auth.css' %}">
+<div class="login-box">
+  {% if form.errors %}
+    <p>{{ form.error_messages.error}}</p>
+  {% endif %}
+  <h2>Register</h2>
+  <form action="{% url 'register' %}" method="post">
+<!--    {{ form }}-->
     {% csrf_token %}
-    <button type="submit" class="btn button-success">submit</button>
-</form>
+    <div class="user-box">
+      {{ form.username }}
+<!--      <input type="text" name="" required="" id="id_username">-->
+      <label>Username</label>
+    </div>
+    <div class="user-box">
+      {{ form.password1 }}
+<!--      <input type="password" name="" required="" id="id_password1">-->
+      <label>Password</label>
+    </div>
+      <div class="user-box">
+      {{ form.password2 }}
+<!--      <input type="password" name="" required="" id="id_password1">-->
+      <label>Confirm Password</label>
+    </div>
+    <a href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </a>
+  </form>
+</div>
+
 {% endblock %}

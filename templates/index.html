@@ -20,7 +20,11 @@
     <div class="wrapper">
           {% block content %}
           {% endblock %}
+      <br>
+      <div style="margin-left: 45%; font-size: 20px; font-weight: bold;">
         User: {{ user }}
+      </div>
+
         <h1 style="text-align:center">Backend Calculator</h1>
 
         <div class="calc">
@@ -103,6 +107,7 @@
         </div>
       </div>
 
+<script src="{% static 'users/js/script.js' %}"></script>
 
 </body>
 </html>

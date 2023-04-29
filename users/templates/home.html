@@ -1,14 +1,13 @@
 {% extends 'index.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/css/style_auth.css' %}">
 
 {% block content %}
 <h1 style="text-align:center">Home Page</h1>
-
-<hr>
-
 {% if user.is_authenticated %}
-    <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'logout' %}" style="margin-left: 48%; font-family: Arial; text-decoration: none; color: #333;">Logout</a>
 {% else %}
-    <a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a>
+    <a href="{% url 'login' %}" style="margin-left: 45%; font-family: Arial; text-decoration: none; color: #333;">Login</a> | <a href="{% url 'register' %}" style="font-family: Arial; text-decoration: none; color: #000;">Register</a>
 {% endif %}
 
 {% endblock %}
